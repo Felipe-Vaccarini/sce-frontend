@@ -12,8 +12,8 @@ function listarProdutos() {
             $.each(result, function (i, data) {
                 html += `<tr><td>` + data.id + `</td>`;
                 html += `<td>` + data.nome + `</td>`;
-                html += `<td><a href="editarProduto.html?id=` + data.id + `"><i class="bi bi-pencil-fill"></i></a>`;
-                html += ` <a href="visualizarProduto.html?id=` + data.id + `"><i class="bi bi-search"></i></a>`;
+                html += `<td><a href="editar-produto.html?id=` + data.id + `"><i class="bi bi-pencil-fill"></i></a>`;
+                html += ` <a href="visualizar-produto.html?id=` + data.id + `"><i class="bi bi-search"></i></a>`;
                 html += ` <a href="#" onclick="removerProduto(` + data.id + `)"><i class="bi bi-archive-fill"></i></a></td></tr>`;
 
                 $("#tbListarProdutosBody").html(html);
