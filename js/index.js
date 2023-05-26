@@ -1,4 +1,4 @@
-$(document).ready(onInit());
+$(document).ready(onInit);
 
 function onInit() {
     $.ajax({
