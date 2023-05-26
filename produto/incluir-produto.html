@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Produtos</title>
+    <title>Incluir Produto</title>
 
     <!-- Bootstrap CSS -->
 
@@ -21,7 +21,7 @@
 
     <!-- Menu topo -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="../index.html">Estoque</a>
+        <a class="navbar-brand" href="../index.html">Academify</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -29,7 +29,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                    <a class="nav-link" href="listar-produtos.html">Produto <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="listarProdutos.html">Produto <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
             <button class="btn btn-outline-danger my-2 my-sm-0" type="button" onclick="sair()">Sair</button>
@@ -38,27 +38,42 @@
 
 
 
-    <!-- Conteúdo principal -->
     <div class="container">
-        <h1>Listar Produtos</h1>
+        <h2>Inserir Produto</h2>
 
-        <hr>
-        <a class="btn btn-primary" href="incluir-produto.html" role="button">Novo</a>
-        </hr>
+        <div class="alert alert-danger collapse" role="alert" id="div-alert-message">
+            <a class="close" onclick="esconderAlert()">×</a>
+        </div>
 
-        <table id="tbListarProdutos" class="table table-striped table-hover">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Nome</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody id="tbListarProdutosBody">
-            </tbody>
-        </table>
+        <form id="form-inserir-produto" action="listar-produtos.html">
+
+
+            <div class="form-group">
+                <label for="input-nome">Nome</label>
+                <input type="text" class="form-control" id="input-nome" placeholder="Nome">
+            </div>
+            <div class="form-group">
+                <label for="input-marca">Marca</label>
+                <input type="text" class="form-control" id="input-marca" placeholder="Marca">
+            </div>
+            <div class="form-group">
+                <label for="input-fabricacao">Fabricacão</label>
+                <input class="form-control" type="date" id="input-fabricacao">
+            </div>
+            <div class="form-group">
+                <label for="input-preco">Preço</label>
+                <input type="number" class="form-control" id="input-preco" placeholder="Preço">
+            </div>
+
+            <hr>
+            <a class="btn btn-secondary" href="listar-produtos.html" role="button">Voltar</a>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+
+        </form>
 
     </div>
+
+
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -74,7 +89,7 @@
 
     <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
 
-    <script src="../js/listar-produtos.js"></script>
+    <script src="../js/incluir-produto.js"></script>
 
 </body>
 
