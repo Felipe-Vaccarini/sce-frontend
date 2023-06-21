@@ -1,0 +1,12 @@
+select.form-control-sm {
+    width: 60px !important;
+
+    margin-left: 10px;
+
+    margin-right: 10px;
+}
+
+
+#new{
+    margin-bottom: 10px;
+}

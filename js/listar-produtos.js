@@ -19,7 +19,11 @@ function listarProdutos() {
                 $("#tbListarProdutosBody").html(html);
             });
 
-            let table = new DataTable('#tbListarProdutos');
+            let table = new DataTable('#tbListarProdutos', {
+                language:{
+                    url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/pt-BR.json',
+                }
+            });
         }
     })
 }
