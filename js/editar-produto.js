@@ -1,11 +1,9 @@
 function GetURLParameter(sParam) {
     var sPageURL = window.location.search.substring(1);
     var sURLVariables = sPageURL.split('&');
-    for (var i = 0; i < sURLVariables.length; i++)
-    {
+    for (var i = 0; i < sURLVariables.length; i++) {
         var sParameterName = sURLVariables[i].split('=');
-        if (sParameterName[0] == sParam)
-        {
+        if (sParameterName[0] == sParam) {
             return sParameterName[1];
         }
     }
@@ -13,14 +11,13 @@ function GetURLParameter(sParam) {
 
 var id_produto = GetURLParameter("id");
 
-//Processar formulário
+// Processar formulário
 $('#form-editar-produto').submit(function (event) {
-
     event.preventDefault();
 
     fabricacao = new Date($('#input-fabricacao').val());
 
-    //Criar formData
+    // Criar formData
     var formData = {
         'id': id_produto,
         'nome': $('#input-nome').val(),
@@ -44,13 +41,14 @@ $('#form-editar-produto').submit(function (event) {
             location.href = 'listar-produtos.html';
         },
         error: function (data) {
+            $('#div-alert-message').empty(); // Remove as mensagens anteriores
             $('#div-alert-message').prepend(data.responseText);
             $('#div-alert-message').fadeIn();
         }
     });
- });
+});
 
- function esconderAlert() {
+function esconderAlert() {
     $('#div-alert-message').html("<a class='close' onclick='esconderAlert()'>×</a>");
     $('#div-alert-message').hide();
 }
@@ -69,7 +67,6 @@ function formatDate(date) {
     return [year, month, day].join('-');
 }
 
-
 $(document).ready(function () {
     $.ajax({
         url: 'http://localhost:8080/api/produto/getById/' + id_produto,
@@ -80,7 +77,11 @@ $(document).ready(function () {
             $("#input-marca").val(data.marca);
             $("#input-fabricacao").val(formatDate(new Date(data.fabricacao)));
             $("#input-preco").val(data.preco);
+        },
+        error: function (data) {
+            $('#div-alert-message').empty(); // Remove as mensagens anteriores
+            $('#div-alert-message').prepend(data.responseText);
+            $('#div-alert-message').fadeIn();
         }
-    })
-
+    });
 });

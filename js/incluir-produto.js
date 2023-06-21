@@ -1,10 +1,9 @@
 $('#form-inserir-produto').submit(function (event) {
-
     event.preventDefault();
 
     fabricacao = new Date($('#input-fabricacao').val());
 
-    //Criar formData
+    // Criar formData
     var formData = {
         'nome': $('#input-nome').val(),
         'marca': $('#input-marca').val(),
@@ -27,8 +26,9 @@ $('#form-inserir-produto').submit(function (event) {
             location.href = 'listar-produtos.html';
         },
         error: function (data) {
+            $('#div-alert-message').empty(); // Remove as mensagens anteriores
             $('#div-alert-message').prepend(data.responseText);
             $('#div-alert-message').fadeIn();
         }
     });
- });
+});
